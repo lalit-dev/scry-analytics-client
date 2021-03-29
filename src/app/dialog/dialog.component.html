@@ -1,0 +1,16 @@
+<!-- <h1 mat-dialog-title>Hi {{data.name}}</h1> -->
+<div mat-dialog-content >
+  <p>Enter Todays BSE Sensex Data</p>
+  <mat-form-field color='accent'>
+    <mat-label>Open</mat-label>
+    <input matInput [(ngModel)]="data.openRate">
+  </mat-form-field>
+  <mat-form-field color='accent'>
+    <mat-label>Close</mat-label>
+    <input matInput [(ngModel)]="data.closeRate">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.closeRate" (click)="addSensex(data)" cdkFocusInitial>Add</button>
+</div>

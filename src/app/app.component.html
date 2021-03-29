@@ -1,0 +1,47 @@
+<div class='main-sec'>
+  <mat-card class='card-style'> BSE Sensex </mat-card>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Date Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let element"> {{formatDate(element.date) || 'NA'}} </td>
+      </ng-container>
+
+      <!-- Open Column -->
+      <ng-container matColumnDef="open">
+        <th mat-header-cell *matHeaderCellDef> Open </th>
+        <td mat-cell *matCellDef="let element"> {{element.open || 'NA'}} </td>
+      </ng-container>
+
+      <!-- Close Column -->
+      <ng-container matColumnDef="close">
+        <th mat-header-cell *matHeaderCellDef> Close </th>
+        <td mat-cell *matCellDef="let element"> {{element.close || 'NA'}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator
+      [length]="totalSize"
+      [pageSize]="pageSize"
+      [hidePageSize]=true
+      #paginator
+      (page)="handlePageChange($event)"></mat-paginator>
+
+  </div>
+
+  <section>
+    <button mat-raised-button color="primary" class='button-active' (click)="openDialog()">Add</button>
+  </section>
+
+</div>
+
+
+<router-outlet></router-outlet>
