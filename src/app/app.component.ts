@@ -86,8 +86,6 @@ export class AppComponent {
       const offset = this.pageSize * e.pageIndex
       this.getSensexList(offset)
     } else {
-      // this.currentPage = e.pageIndex;
-      // this.pageSize = e.pageSize;
       // this.iterator();
     }
   }
